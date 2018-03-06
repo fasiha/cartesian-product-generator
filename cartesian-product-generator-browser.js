@@ -34,17 +34,18 @@ function product() {
     for (_i = 0; _i < arguments.length; _i++) {
         arrs[_i] = arguments[_i];
     }
-    var _i, sizes, ntotal, i, subs;
+    var _i, sizes, ind2subOpt, ntotal, i, subs;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 sizes = arrs.map(function (arr) { return arr.length; });
+                ind2subOpt = ind2sub_1.optimizeInd2sub(sizes);
                 ntotal = sizes.reduce(function (acc, n) { return acc * n; }, 1);
                 i = 0;
                 _a.label = 1;
             case 1:
                 if (!(i < ntotal)) return [3 /*break*/, 4];
-                subs = ind2sub_1.ind2sub(sizes, i);
+                subs = ind2subOpt(i);
                 return [4 /*yield*/, subs.map(function (sub, dim) { return arrs[dim][sub]; })];
             case 2:
                 _a.sent();
@@ -66,6 +67,14 @@ function ind2sub(sizes, index) {
     return sizes.map(function (size, i) { return Math.floor(index / (cumprod[i])) % size; });
 }
 exports.ind2sub = ind2sub;
+function ind2subNocheck(sizes, index, cumprod) {
+    return sizes.map(function (size, i) { return Math.floor(index / (cumprod[i])) % size; });
+}
+function optimizeInd2sub(sizes) {
+    var cumprod = sizes.reduce(function (acc, n) { return acc.concat(acc[acc.length - 1] * n); }, [1]);
+    return function (index) { return ind2subNocheck(sizes, index, cumprod); };
+}
+exports.optimizeInd2sub = optimizeInd2sub;
 
 },{}]},{},[1])(1)
 });

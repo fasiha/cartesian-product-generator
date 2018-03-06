@@ -1,6 +1,6 @@
 {
   "name": "cartesian-product-generator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ES2015 generator (iterable iterator) for cartesian product. Put combinatorial explosion back in the kennel.",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/fasiha/cartesian-product-generator#readme",
   "dependencies": {
-    "ind2sub": "^1.0.0"
+    "ind2sub": "^2.0.0"
   },
   "devDependencies": {
     "browserify": "^16.1.0",

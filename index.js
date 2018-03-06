@@ -33,17 +33,18 @@ function product() {
     for (_i = 0; _i < arguments.length; _i++) {
         arrs[_i] = arguments[_i];
     }
-    var _i, sizes, ntotal, i, subs;
+    var _i, sizes, ind2subOpt, ntotal, i, subs;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 sizes = arrs.map(function (arr) { return arr.length; });
+                ind2subOpt = ind2sub_1.optimizeInd2sub(sizes);
                 ntotal = sizes.reduce(function (acc, n) { return acc * n; }, 1);
                 i = 0;
                 _a.label = 1;
             case 1:
                 if (!(i < ntotal)) return [3 /*break*/, 4];
-                subs = ind2sub_1.ind2sub(sizes, i);
+                subs = ind2subOpt(i);
                 return [4 /*yield*/, subs.map(function (sub, dim) { return arrs[dim][sub]; })];
             case 2:
                 _a.sent();
