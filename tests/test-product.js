@@ -1,5 +1,5 @@
 const test = require('tape');
-const product = require('../index');
+const product = require('../index').product;
 test('product works', t => {
   let protocols = [ 'http:/', 'https:/' ];
   let cdns = [ 'cdn1.com', 'cdn2.org', 'cdn3.net' ];
