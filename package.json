@@ -1,0 +1,33 @@
+{
+  "name": "cartesian-product-generator",
+  "version": "1.0.0",
+  "description": "ES2015 generator (iterable iterator) for cartesian product. Put combinatorial explosion back in the kennel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/test-*js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fasiha/cartesian-product-generator.git"
+  },
+  "keywords": [
+    "cartesian",
+    "cartesian product",
+    "product",
+    "iterator",
+    "iterable",
+    "generator"
+  ],
+  "author": "Ahmed Fasih",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/fasiha/cartesian-product-generator/issues"
+  },
+  "homepage": "https://github.com/fasiha/cartesian-product-generator#readme",
+  "dependencies": {
+    "ind2sub": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^4.9.0"
+  }
+}
