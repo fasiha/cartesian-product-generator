@@ -1,12 +1,26 @@
 {
-  "name": "cartesian-product-generator",
+  "name": "@strong-roots-capital/cartesian-product-generator",
   "version": "1.1.0",
   "description": "ES2015 generator (iterable iterator) for cartesian product. Put combinatorial explosion back in the kennel.",
   "main": "index.js",
   "scripts": {
     "test": "tape tests/test-*js",
+    "prepublishOnly": "npm run compile",
+    "compile": "npm run clean && npm run build",
+    "clean": "rm -f index.js index.js.map index.d.ts index.d.ts.map cartesian-product-generator-browser.js",
     "build": "tsc -p . && browserify index.js -s cartesianProductGenerator -o cartesian-product-generator-browser.js"
   },
+  "files": [
+    "index.d.ts",
+    "index.d.ts.map",
+    "index.js",
+    "index.js.map",
+    "cartesian-product-generator-browser.js",
+    "README.md",
+    "UNLICENSE",
+    "CHANGELOG.md",
+    "package.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fasiha/cartesian-product-generator.git"
@@ -31,6 +45,6 @@
   "devDependencies": {
     "browserify": "^16.1.0",
     "tape": "^4.9.0",
-    "typescript": "^2.7.2"
+    "typescript": "^3.4.1"
   }
 }
